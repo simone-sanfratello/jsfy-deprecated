@@ -1,0 +1,2 @@
+# jsfy
+Javascript Object serialization 
