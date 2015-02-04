@@ -1,23 +1,14 @@
 {
-    "name": "session-pg",
-    "version": "0.0.1",
-    "description": "session store for pg",
-    "url": "http://github.com/simone-sanfratello/node-session-pg",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/simone-sanfratello/node-session-pg.git"
-    },
-    "author": {
-        "name": "Simone Sanfratello",
-        "email": "simone.sanfra@gmail.com"
-    },
+    "name": "jsfy",
+    "version": "1.0.0",
+    "description": "Javascript Object serialization",
+    "keywords": ["stringify", "jsfy", "json"],
+    "url": "http://github.com/simone-sanfratello/jsfy",
+    "author": "Simone Sanfratello <simone.sanfra@gmail.com>",
     "license": "MIT",
-    "dependencies": {
-        "pg": "4.x",
-        "sha1": ">1.0"
-    },
-    "engines": {
-        "node": ">0.10.30"
-    },
-    "main": "main.js"
+    "repository": { "type": "git", "url": "git://github.com/simone-sanfratello/jsfy.git" },
+    "engines": { "node": ">= 0.10.x" },
+    "scripts": { "test": "node test.js" },
+    "files": ["main.js"],
+    "main": "main"
 }
