@@ -1,0 +1,23 @@
+{
+    "name": "session-pg",
+    "version": "0.0.1",
+    "description": "session store for pg",
+    "url": "http://github.com/simone-sanfratello/node-session-pg",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/simone-sanfratello/node-session-pg.git"
+    },
+    "author": {
+        "name": "Simone Sanfratello",
+        "email": "simone.sanfra@gmail.com"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "pg": "4.x",
+        "sha1": ">1.0"
+    },
+    "engines": {
+        "node": ">0.10.30"
+    },
+    "main": "main.js"
+}
