@@ -20,7 +20,7 @@ Javascript Object full serialization, when JSON.stringify is not enough
  * @example jsfy(theobject, '\t', '\n');
  */
 
-```js
+```
 
 ## Npm Installation
 
