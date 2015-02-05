@@ -14,7 +14,7 @@ Javascript Object full serialization, when JSON.stringify is not enough
  * @param {*} obj 
  * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
  * @param {string} [endline] end of line string, typically \n or \r\n in windows os
- * @returns {String}
+ * @returns {string}
  * @example jsfy(theobject); 
  * @example jsfy(theobject, 2, '\n'); 
  * @example jsfy(theobject, '\t', '\n');
@@ -52,7 +52,10 @@ var _test = {
     }
 };
 
-console.log(jsfy(_test, 2, '\n'));
+console.log(jsfy(_test));
+
+>> {astring: "katia",anarray: [1,"alice","rico","mimi",2,3,new Date("2015-02-05T06:51:18.149Z")],aclass: {afunction: function () { return 'hi'; },afloat: 7.8},aregexp: /(\w)+/,atree: {one: 1,two: "two",three: {threeone: {1: "3.1"}},four: 4.01}}
+
 ```
 
 ## On Browser

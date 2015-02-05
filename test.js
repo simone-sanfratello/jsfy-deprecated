@@ -20,4 +20,4 @@ var _test = {
     }
 };
 
-console.log(jsfy(_test, 2, '\n'));
+console.log(jsfy(_test));
