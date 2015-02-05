@@ -5,23 +5,6 @@
 
 Javascript Object full serialization, when JSON.stringify is not enough
 
-## jsdoc
-
-```js
-
-/**
- * Javascript Object serialization 
- * @param {*} obj 
- * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
- * @param {string} [endline] end of line string, typically \n or \r\n in windows os
- * @returns {string}
- * @example jsfy(theobject); 
- * @example jsfy(theobject, 2, '\n'); 
- * @example jsfy(theobject, '\t', '\n');
- */
-
-```
-
 ## Npm Installation
 
     $ npm install jsfy
@@ -90,6 +73,22 @@ console.log(jsfy(_test));
 
     console.log(jsfy(_test, 2, '\n'));
 </script>
+```
+
+## jsdoc
+
+```js
+/**
+ * Javascript Object serialization 
+ * @param {*} obj 
+ * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
+ * @param {string} [endline] end of line string, typically \n or \r\n in windows os
+ * @returns {string}
+ * 
+ * @example jsfy(theobject); 
+ * @example jsfy(theobject, 2, '\n'); 
+ * @example jsfy(theobject, '\t', '\n');
+ */
 ```
 
 ## License

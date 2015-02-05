@@ -4,6 +4,7 @@
  * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
  * @param {string} [endline] end of line string, typically \n or \r\n in windows os
  * @returns {string}
+ * 
  * @example jsfy(theobject); 
  * @example jsfy(theobject, 2, '\n'); 
  * @example jsfy(theobject, '\t', '\n');
@@ -37,7 +38,7 @@ var jsfy = function(obj, spacing, endline) {
             
             var _out = '';
             for (var key in obj)
-                _out += ',' + endline + _spacing1 + key + ': ' + __main(obj[key], spacing, deep+1);
+                _out += ',' + endline + _spacing1 + key + ':' + __main(obj[key], spacing, deep+1);
             return '{' + _out.substr(1) + endline + _spacing0 + '}';
         },
         array: function(obj, spacing, deep) {
