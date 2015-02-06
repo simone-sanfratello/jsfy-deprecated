@@ -2,7 +2,6 @@
 
 [![NPM Version](http://img.shields.io/npm/v/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
 [![NPM Downloads](https://img.shields.io/npm/dm/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
-[![Gratipay][gratipay-image-simone-sanfratello]][gratipay-url-simone-sanfratello]
 
 Javascript Object full serialization, when JSON.stringify is not enough
 
@@ -91,6 +90,7 @@ console.log(jsfy(_test));
  * @example jsfy(theobject, '\t', '\n');
  */
 ```
+[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/simone-sanfratello/)
 
 ## License
 
