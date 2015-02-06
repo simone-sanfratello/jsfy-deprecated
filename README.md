@@ -2,6 +2,7 @@
 
 [![NPM Version](http://img.shields.io/npm/v/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
 [![NPM Downloads](https://img.shields.io/npm/dm/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
+[![Gratipay][gratipay-image-simone-sanfratello]][gratipay-url-simone-sanfratello]
 
 Javascript Object full serialization, when JSON.stringify is not enough
 
