@@ -3,6 +3,9 @@
 [![NPM Version](http://img.shields.io/npm/v/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
 [![NPM Downloads](https://img.shields.io/npm/dm/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
 
+[![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D68ATHPLKXT9G "Donate using Paypal")
+[![Gratipay donate button](https://img.shields.io/gratipay/jsfy.svg?style=flat)](https://www.gratipay.com/simone-sanfratello/ "Donate using Gratipay")
+
 Javascript Object full serialization, when JSON.stringify is not enough
 
 ## Npm Installation
@@ -103,7 +106,6 @@ console.log(jsfy(_test));
  * @example jsfy(theobject, '\t', '\n');
  */
 ```
-[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/simone-sanfratello/)
 
 ## License
 
