@@ -23,6 +23,15 @@ var jsfy = function (obj, spacing, endline) {
         string: function (obj) {
             return '"' + obj.toString() + '"';
         },
+        boolean: function (obj) {
+            return obj ? 'true' : 'false';
+        },
+        null: function () {
+            return 'null';
+        },
+        undefined: function () {
+            return 'undefined';
+        },
         object: function (obj, spacing, deep) {
             // spacing 
             var _space = ' ', _len = spacing;
@@ -59,10 +68,6 @@ var jsfy = function (obj, spacing, endline) {
     };
 
     var __main = function (obj, spacing, deep) {
-        // check if no need to do nothing
-        if (obj === null || obj === undefined)
-            return '';
-
         if (!deep)
             deep = 1;
 
@@ -70,11 +75,17 @@ var jsfy = function (obj, spacing, endline) {
         if (_type == 'object') {
             if (obj instanceof Array)
                 _type = 'array';
-            if (obj instanceof Date)
+            else if (obj instanceof Date)
                 _type = 'date';
-            if (obj instanceof RegExp)
+            else if (obj instanceof RegExp)
                 _type = 'regexp';
+            else if (obj === null)
+                _type = 'null';
         }
+        if (!_type && obj === undefined)
+            _type = 'undefined';
+
+        console.log(_type)
         return __serialize[_type](obj, spacing, deep);
     };
 

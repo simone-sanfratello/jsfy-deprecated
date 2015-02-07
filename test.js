@@ -3,6 +3,11 @@ var jsfy = require('./main.js');
 var _test = {
     astring: 'katia',
     anarray: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
+    abool: true,
+    anotherbool: false,
+    anundefined: undefined,
+    anull: null,
+    anan: NaN,
     aclass: {
         afunction: function() { return 'hi'; },
         afloat: 7.8
@@ -16,7 +21,8 @@ var _test = {
                 1: '3.1'
             }
         },
-        four: 4.01
+        four: 4.01,
+        five: 5
     }
 };
 
