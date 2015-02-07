@@ -85,7 +85,6 @@ var jsfy = function (obj, spacing, endline) {
         if (!_type && obj === undefined)
             _type = 'undefined';
 
-        console.log(_type)
         return __serialize[_type](obj, spacing, deep);
     };
 

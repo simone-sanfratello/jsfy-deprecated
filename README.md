@@ -17,7 +17,12 @@ var jsfy = require('jsfy');
 
 var _test = {
     astring: 'katia',
-    anarraymix: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
+    anarray: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
+    abool: true,
+    anotherbool: false,
+    anundefined: undefined,
+    anull: null,
+    anan: NaN,
     aclass: {
         afunction: function() { return 'hi'; },
         afloat: 7.8
@@ -31,13 +36,15 @@ var _test = {
                 1: '3.1'
             }
         },
-        four: 4.01
+        four: 4.01,
+        five: 5
     }
 };
 
+
 console.log(jsfy(_test));
 
->> {astring: "katia",anarray: [1,"alice","rico","mimi",2,3,new Date("2015-02-05T06:51:18.149Z")],aclass: {afunction: function () { return 'hi'; },afloat: 7.8},aregexp: /(\w)+/,atree: {one: 1,two: "two",three: {threeone: {1: "3.1"}},four: 4.01}}
+>> {astring:"katia",anarray:[1,"alice","rico","mimi",2,3,new Date("2015-02-07T00:01:52.247Z")],abool:true,anotherbool:false,anundefined:undefined,anull:null,anan:NaN,aclass:{afunction:function () { return 'hi'; },afloat:7.8},aregexp:/(\w)+/,atree:{one:1,two:"two",three:{threeone:{1:"3.1"}},four:4.01,five:5}}
 
 ```
 
@@ -53,7 +60,12 @@ console.log(jsfy(_test));
 
     var _test = {
         astring: 'katia',
-        anarraymix: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
+        anarray: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
+        abool: true,
+        anotherbool: false,
+        anundefined: undefined,
+        anull: null,
+        anan: NaN,
         aclass: {
             afunction: function() { return 'hi'; },
             afloat: 7.8
@@ -67,7 +79,8 @@ console.log(jsfy(_test));
                     1: '3.1'
                 }
             },
-            four: 4.01
+            four: 4.01,
+            five: 5
         }
     };
 
