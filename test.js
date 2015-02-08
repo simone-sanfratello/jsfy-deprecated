@@ -9,6 +9,7 @@ var _test = {
     anundefined: undefined,
     anull: null,
     anan: NaN,
+    ainfinity: Infinity,
     aclass: {
         afunction: function() { return 'hi'; },
         afloat: 7.8
