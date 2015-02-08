@@ -4,7 +4,6 @@
 [![NPM Downloads](https://img.shields.io/npm/dm/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
 
 [![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MRV4AM2CA9F78 "Donate using Paypal")
-[![Gratipay donate button](https://img.shields.io/gratipay/jsfy.svg?style=flat)](https://www.gratipay.com/simone-sanfratello/ "Donate using Gratipay")
 
 Javascript Object full serialization, when JSON.stringify is not enough
 
@@ -45,9 +44,9 @@ var _test = {
 };
 
 
-console.log(jsfy(_test));
+console.log(jsfy(_test, null, null, 'mix'));
 
->> {astring:"katia",anarray:[1,"alice","rico","mimi",2,3,new Date("2015-02-07T00:01:52.247Z")],abool:true,anotherbool:false,anundefined:undefined,anull:null,anan:NaN,aclass:{afunction:function () { return 'hi'; },afloat:7.8},aregexp:/(\w)+/,atree:{one:1,two:"two",three:{threeone:{1:"3.1"}},four:4.01,five:5}}
+>> var mix = {astring:"katia",anarray:[1,"alice","rico","mimi",2,3,new Date("2015-02-08T06:19:17.985Z")],abool:true,anotherbool:false,anundefined:undefined,anull:null,anan:NaN,aclass:{afunction:function () { return 'hi'; },afloat:7.8},aregexp:/(\w)+/,atree:{one:1,two:"two",three:{threeone:{1:"3.1"}},four:4.01,five:5}};
 
 ```
 
@@ -99,11 +98,13 @@ console.log(jsfy(_test));
  * @param {*} obj 
  * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
  * @param {string} [endline] end of line string, typically \n or \r\n in windows os
+ * @param {string} [name] prepend "var name = "
  * @returns {string}
  * 
  * @example jsfy(theobject); 
  * @example jsfy(theobject, 2, '\n'); 
  * @example jsfy(theobject, '\t', '\n');
+ * @example jsfy(theobject, null, null, 'data');
  */
 ```
 

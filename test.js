@@ -3,6 +3,7 @@ var jsfy = require('./main.js');
 var _test = {
     astring: 'katia',
     anarray: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
+    aquoting: 'hi "mr ',
     abool: true,
     anotherbool: false,
     anundefined: undefined,
@@ -26,4 +27,4 @@ var _test = {
     }
 };
 
-console.log(jsfy(_test));
+console.log(jsfy(_test, null, null, 'mix'));

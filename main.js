@@ -3,13 +3,15 @@
  * @param {*} obj 
  * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
  * @param {string} [endline] end of line string, typically \n or \r\n in windows os
+ * @param {string} [name] prepend "var name = "
  * @returns {string}
  * 
  * @example jsfy(theobject); 
  * @example jsfy(theobject, 2, '\n'); 
  * @example jsfy(theobject, '\t', '\n');
+ * @example jsfy(theobject, null, null, 'data');
  */
-var jsfy = function (obj, spacing, endline) {
+var jsfy = function (obj, spacing, endline, name) {
     if (!endline && endline !== '')
         endline = '';
 
@@ -21,7 +23,7 @@ var jsfy = function (obj, spacing, endline) {
             return obj;
         },
         string: function (obj) {
-            return '"' + obj.toString() + '"';
+            return '"' + obj.split('"').join('\\"') + '"';
         },
         boolean: function (obj) {
             return obj ? 'true' : 'false';
@@ -34,7 +36,7 @@ var jsfy = function (obj, spacing, endline) {
         },
         object: function (obj, spacing, deep) {
             // spacing 
-            var _space = ' ', _len = spacing;
+            var _space = ' ', _len = spacing || 0;
             if (typeof spacing == 'string') {
                 _space = spacing;
                 _len = _space.length;
@@ -88,7 +90,10 @@ var jsfy = function (obj, spacing, endline) {
         return __serialize[_type](obj, spacing, deep);
     };
 
-    return __main(obj, spacing);
+    if(name)
+        return 'var ' + name + ' = ' + __main(obj, spacing) + ';';
+    else
+        __main(obj, spacing);
 };
 
 if (typeof window == 'undefined')
