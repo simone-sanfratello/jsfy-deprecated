@@ -8,6 +8,7 @@ var _test = {
     anotherbool: false,
     anundefined: undefined,
     anull: null,
+    amath: function(x, y) { return Math.min(x, y) },
     anan: NaN,
     ainfinity: Infinity,
     aclass: {
@@ -25,7 +26,14 @@ var _test = {
         },
         four: 4.01,
         five: 5
-    }
+    },
+    "1astrangekey": 123,
+    "strange-key_two": 0,
+    normal_key: -1,
+    "awful key ": 'a',
+    "dotted.key.com": 'www',
+    "very\".awsul.key": '123',
+    "why use a string for a key? 'cause I can ...": "?'\""
 };
 
 console.log(jsfy(_test, null, null, 'mix'));

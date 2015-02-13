@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<style>
+    #console, #src, #cmd {
+        font-family: 'Lucida Console', Monaco, monospace;
+        background-color: #333;
+        color: #fafafa;
+        width: 90%;    
+    }
+    #console, #src {
+        height: 300px;
+    }
+    body {
+        padding: 10px;
+    }
+</style>
+<title>jsfy Online Demo</title></head>
+    <body>
+        <script type="text/javascript" src="https://raw.githubusercontent.com/simone-sanfratello/jsfy/master/main.js"></script>
+        <h1>jsfy Online Demo</h1>
+        <h3>- input:</h3>
+        <textarea id="src" onkeyup="javascript:update();">
+    var _test = {
+        astring: 'katia',
+        anarray: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
+        abool: true,
+        anotherbool: false,
+        anundefined: undefined,
+        anull: null,
+        anan: NaN,
+        aclass: {
+            afunction: function() { return 'hi'; },
+            afloat: 7.8
+        },
+        aregexp: /(\w)+/,
+        atree: {
+            one: 1,
+            two: 'two',
+            three: {
+                threeone: {
+                    1: '3.1'
+                }
+            },
+            four: 4.01,
+            five: 5
+        }
+    }
+        </textarea>    
+        <br/>
+        <h3>- jsfy:</h3>
+        <input type="text" id="cmd" onkeyup="javascript:update();" value="jsfy(_test, 2, '\n', 'demo')">
+        <br/>
+        <a href="javascript:void(0);" onclick="javascript:update();">update</a>
+        <br/>
+        <h3>- result:</h3>
+        <textarea id="console"></textarea>
+        <script>
+            function update() {
+                var _console = document.getElementById('console');
+                var _src = document.getElementById('src');
+                var _cmd = document.getElementById('cmd');
+                var _out;
+
+                eval(_src.innerHTML + '; _out = ' + _cmd.value + ';');
+                _console.innerHTML = _out;
+            }
+        </script>
+    </body>
+</html>

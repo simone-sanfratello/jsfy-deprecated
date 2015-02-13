@@ -1,5 +1,7 @@
 /**
  * Javascript Object serialization 
+ * @todo circular reference manage
+ * @todo compression
  * @param {*} obj 
  * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
  * @param {string} [endline] end of line string, typically \n or \r\n in windows os
@@ -14,6 +16,10 @@
 var jsfy = function (obj, spacing, endline, name) {
     if (!endline && endline !== '')
         endline = '';
+    
+    var __replace = function(str, find, replace) {
+        return str.split(find).join(replace);
+    };
 
     var __serialize = {
         function: function (obj) {
@@ -23,7 +29,7 @@ var jsfy = function (obj, spacing, endline, name) {
             return obj;
         },
         string: function (obj) {
-            return '"' + obj.split('"').join('\\"') + '"';
+            return '"' + __replace(obj, '"', '\\"') + '"';
         },
         boolean: function (obj) {
             return obj ? 'true' : 'false';
@@ -49,8 +55,11 @@ var jsfy = function (obj, spacing, endline, name) {
                 _spacing1 += _space;
 
             var _out = '';
-            for (var key in obj)
-                _out += ',' + endline + _spacing1 + key + ':' + __main(obj[key], spacing, deep + 1);
+            for (var key in obj) {
+                // strange key
+                var _key = key.match(/^\w[\d\w_]*$/) ? key : '"' + __replace(key, '"', '\\"') + '"';
+                _out += ',' + endline + _spacing1 + _key + ':' + __main(obj[key], spacing, deep + 1);
+            }
             return '{' + _out.substr(1) + endline + _spacing0 + '}';
         },
         array: function (obj, spacing, deep) {
