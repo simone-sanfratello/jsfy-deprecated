@@ -36,4 +36,4 @@ var _test = {
     "why use a string for a key? 'cause I can ...": "?'\""
 };
 
-console.log(jsfy(_test, null, null, 'mix'));
+console.log(jsfy(_test, 2, '\n'));

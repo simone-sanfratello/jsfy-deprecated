@@ -102,7 +102,7 @@ var jsfy = function (obj, spacing, endline, name) {
     if(name)
         return 'var ' + name + ' = ' + __main(obj, spacing) + ';';
     else
-        __main(obj, spacing);
+        return __main(obj, spacing);
 };
 
 if (typeof window == 'undefined')
