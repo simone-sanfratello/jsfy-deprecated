@@ -33,7 +33,8 @@ var _test = {
     "awful key ": 'a',
     "dotted.key.com": 'www',
     "very\".awsul.key": '123',
-    "why use a string for a key? 'cause I can ...": "?'\""
+    "why use a string for a key? 'cause I can ...": "?'\"",
+    adefered: new jsfy.Defered('my.Custom.ENUM')
 };
 
 console.log(jsfy(_test, 2, '\n'));

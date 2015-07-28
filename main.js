@@ -1,6 +1,6 @@
 /**
  * Javascript Object serialization 
- * @todo circular reference manage
+ * @todo manage circular references 
  * @todo compression
  * @param {*} obj 
  * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
@@ -39,6 +39,9 @@ var jsfy = function (obj, spacing, endline, name) {
         },
         undefined: function () {
             return 'undefined';
+        },
+        defered: function (obj) {
+            return obj.toString();
         },
         object: function (obj, spacing, deep) {
             // spacing 
@@ -90,6 +93,8 @@ var jsfy = function (obj, spacing, endline, name) {
                 _type = 'date';
             else if (obj instanceof RegExp)
                 _type = 'regexp';
+            else if (obj instanceof jsfy.Defered)
+                _type = 'defered';
             else if (obj === null)
                 _type = 'null';
         }
@@ -105,5 +110,11 @@ var jsfy = function (obj, spacing, endline, name) {
         return __main(obj, spacing);
 };
 
-if (typeof window == 'undefined')
+jsfy.Defered = function(val) {
+    this.val = val;
+};
+jsfy.Defered.prototype.toString = function() { return this.val };
+
+if (typeof module !== 'undefined' && module.exports) {
     module.exports = jsfy;
+}
