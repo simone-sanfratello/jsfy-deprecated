@@ -115,6 +115,6 @@ jsfy.Defered = function(val) {
 };
 jsfy.Defered.prototype.toString = function() { return this.val };
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module != 'undefined' && module.exports) {
     module.exports = jsfy;
 }
