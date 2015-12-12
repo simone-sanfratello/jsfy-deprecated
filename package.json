@@ -1,6 +1,6 @@
 {
     "name": "jsfy",
-    "version": "1.5.3",
+    "version": "1.5.4",
     "description": "Javascript Object serialization/marshalling",
     "keywords": ["stringify", "jsfy", "json", "serialization", "marshalling"],
     "url": "http://github.com/simone-sanfratello/jsfy",
