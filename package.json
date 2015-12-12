@@ -17,6 +17,6 @@
         "test": "node test.js"
     },
     "tonicExampleFilename": "test.js",
-    "files": ["main.js"],
+    "files": ["main.js","test.js"],
     "main": "main"
 }
