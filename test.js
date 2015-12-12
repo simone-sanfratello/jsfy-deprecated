@@ -1,4 +1,4 @@
-var jsfy = require('./main.js');
+var jsfy = require('jsfy');
 
 var _test = {
     astring: 'katia',
