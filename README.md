@@ -8,7 +8,8 @@
 Javascript Object full serialization, when JSON.stringify is not enough
 
 Stringify using correct syntax for all variable types:
-string, number, boolean, function, Object, Array, Date, Regexp, undefined, null, Infinity, NaN
+string, number, boolean, function, Object, Array, Date, Regexp, undefined, null, Infinity, NaN  
+Also added "defered" type, means cna add not yet defined vars that will be parsed withouc errors.
 
 ## Npm Installation
 
@@ -57,20 +58,22 @@ var _test = {
 };
 
 console.log(jsfy(_test, null, null, 'mix'));
-
+```
+output
+```
 > var mix = {adefered:my.custom.ENUM,astring:"katia",anarray:[1,"alice","rico","mimi",2,3,new Date("2015-02-13T04:59:11.698Z")],aquoting:"hi \"mr ",abool:true,anotherbool:false,anundefined:undefined,anull:null,anan:NaN,ainfinity:Infinity,aclass:{afunction:function () { return 'hi'; },afloat:7.8},aregexp:/(\w)+/,atree:{one:1,two:"two",three:{threeone:{1:"3.1"}},four:4.01,five:5},1astrangekey:123,"strange-key_two":0,normal_key:-1,"awful key ":"a","dotted.key.com":"www","very\".awsul.key":"123","why use a string for a key? 'cause I can ...":"?'\""};
 
 ```
 
 ## On Browser
 
-    <script src="https://raw.githubusercontent.com/simone-sanfratello/jsfy/master/main.js"></script>
+    <script src="https://rawgit.com/simone-sanfratello/jsfy/master/main.js"></script>
 
-## Browser Example
+### Browser Example
 
 ```html
 
-<script src="https://raw.githubusercontent.com/simone-sanfratello/jsfy/master/main.js">
+<script src="https://rawgit.com/simone-sanfratello/jsfy/master/main.js">
 
     var _test = {
         astring: 'katia',
@@ -102,21 +105,25 @@ console.log(jsfy(_test, null, null, 'mix'));
 </script>
 ```
 
+### Tonic Test
+
+https://tonicdev.com/npm/jsfy
+
 ## jsdoc
 
 ```js
 /**
- * Javascript Object serialization 
+ * Javascript Object serialization
  * @todo circular reference manage
  * @todo compression
- * @param {*} obj 
+ * @param {*} obj
  * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
  * @param {string} [endline] end of line string, typically \n or \r\n in windows os
  * @param {string} [name] prepend "var name = "
  * @returns {string}
- * 
- * @example jsfy(theobject); 
- * @example jsfy(theobject, 2, '\n'); 
+ *
+ * @example jsfy(theobject);
+ * @example jsfy(theobject, 2, '\n');
  * @example jsfy(theobject, '\t', '\n');
  * @example jsfy(theobject, null, null, 'data');
  */
