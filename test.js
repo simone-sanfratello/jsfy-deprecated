@@ -1,5 +1,4 @@
 
-//var jsfy = require('./main');
 var jsfy = require('jsfy');
 
 var _test = {
@@ -10,11 +9,15 @@ var _test = {
     anotherbool: false,
     anundefined: undefined,
     anull: null,
-    amath: function(x, y) { return Math.min(x, y) },
+    amath: function (x, y) {
+        return Math.min(x, y)
+    },
     anan: NaN,
     ainfinity: Infinity,
     aclass: {
-        afunction: function() { return 'hi'; },
+        afunction: function () {
+            return 'hi';
+        },
         afloat: 7.8
     },
     aregexp: /(\w)+/,
@@ -39,5 +42,31 @@ var _test = {
     adefered: new jsfy.Defered('my.Custom.ENUM')
 };
 
+// output tests
 console.log(jsfy(_test, 2, '\n'));
 console.log(jsfy(_test, '  ', null, 'data'));
+
+
+// circular reference object
+var _circle = {
+    a: {
+        b: {
+            c: 1
+        }
+    }
+};
+_circle.a.b.d = _circle.a;
+try {
+    console.log(jsfy(_circle));
+} catch (err) {
+    console.log(err);
+}
+
+// circular reference array
+_circle = [0, {}, 2, {}];
+_circle[3].a = _circle[1];
+try {
+    console.log(jsfy(_circle));
+} catch (err) {
+    console.log(err);
+}

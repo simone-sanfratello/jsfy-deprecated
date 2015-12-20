@@ -7,9 +7,22 @@
 
 Javascript Object full serialization, when JSON.stringify is not enough
 
-Stringify using correct syntax for all variable types:
-string, number, boolean, function, Object, Array, Date, Regexp, undefined, null, Infinity, NaN  
-Also added "defered" type, means can use not yet defined vars.
+Stringify using correct syntax for all js native variable types:
+* string
+* number
+* boolean
+* function
+* Object
+* Array
+* Date
+* Regexp
+* undefined
+* null
+* Infinity
+* NaN
+
+Can use not yet defined vars using "jsfy.Defered" type.
+Detect circular reference, if found throw exception.
 
 ## Npm Installation
 
@@ -113,17 +126,16 @@ https://tonicdev.com/npm/jsfy
 
 ```js
 /**
- * Javascript Object serialization 
- * @todo manage circular references 
+ * Javascript Object serialization
  * @todo compression
- * @param {*} obj 
+ * @param {*} obj
  * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tipically use 2, 4 or \t with endline \n
  * @param {string} [endline] end of line string, typically \n or \r\n in windows os
  * @param {string} [name] prepend "var name = " and postpend ";"
  * @returns {string}
- * 
- * @example jsfy(theobject); 
- * @example jsfy(theobject, 2, '\n'); 
+ *
+ * @example jsfy(theobject);
+ * @example jsfy(theobject, 2, '\n');
  * @example jsfy(theobject, '\t', '\n');
  * @example jsfy(theobject, null, null, 'data');
  */

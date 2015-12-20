@@ -1,6 +1,5 @@
 /**
  * Javascript Object serialization 
- * @todo manage circular references 
  * @todo compression
  * @param {*} obj 
  * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tipically use 2, 4 or \t with endline \n
@@ -13,12 +12,21 @@
  * @example jsfy(theobject, '\t', '\n');
  * @example jsfy(theobject, null, null, 'data');
  */
-var jsfy = function (obj, spacing, endline, name) {    
+var jsfy = function (obj, spacing, endline, name) {
+    var __done = [];
+
     if (!endline && endline !== '')
         endline = '';
-    
-    var __replace = function(str, find, replace) {
+
+    var __replace = function (str, find, replace) {
         return str.split(find).join(replace);
+    };
+
+    var __checkCircular = function (val, path) {
+        if (~__done.indexOf(val))
+            throw "ERROR: circular reference @ " + path;
+
+        __done.push(val);
     };
 
     var __serialize = {
@@ -43,7 +51,11 @@ var jsfy = function (obj, spacing, endline, name) {
         defered: function (obj) {
             return obj.toString();
         },
-        object: function (obj, spacing, deep) {
+        object: function (obj, spacing, deep, path) {
+            if (!path)
+                path = '[Object]';
+            __checkCircular(obj, path);
+
             // spacing 
             var _space = ' ', _len = spacing || 0;
             if (typeof spacing == 'string') {
@@ -61,14 +73,20 @@ var jsfy = function (obj, spacing, endline, name) {
             for (var key in obj) {
                 // strange key
                 var _key = key.match(/^\w[\d\w_]*$/) ? key : '"' + __replace(key, '"', '\\"') + '"';
-                _out += ',' + endline + _spacing1 + _key + ':' + __main(obj[key], spacing, deep + 1);
+                var _path = path + '.' + key;
+                _out += ',' + endline + _spacing1 + _key + ':' + __main(obj[key], spacing, deep + 1, _path);
             }
             return '{' + _out.substr(1) + endline + _spacing0 + '}';
         },
-        array: function (obj, spacing, deep) {
+        array: function (obj, spacing, deep, path) {
+            if (!path)
+                path = '[Array]';
+            __checkCircular(obj, _path);
+
             var _out = '';
             for (var i = 0; i < obj.length; i++) {
-                _out += ',' + __main(obj[i], spacing, deep);
+                var _path = path + '#' + i;
+                _out += ',' + __main(obj[i], spacing, deep, _path);
             }
             return '[' + _out.substr(1) + ']';
         },
@@ -81,7 +99,7 @@ var jsfy = function (obj, spacing, endline, name) {
 
     };
 
-    var __main = function (obj, spacing, deep) {
+    var __main = function (obj, spacing, deep, path) {
         if (!deep)
             deep = 1;
 
@@ -102,19 +120,21 @@ var jsfy = function (obj, spacing, endline, name) {
         //if (!_type && obj === undefined)
         //  _type = 'undefined';
 
-        return __serialize[_type](obj, spacing, deep);
+        return __serialize[_type](obj, spacing, deep, path);
     };
 
-    if(name)
+    if (name)
         return 'var ' + name + ' = ' + __main(obj, spacing) + ';';
     else
         return __main(obj, spacing);
 };
 
-jsfy.Defered = function(val) {
+jsfy.Defered = function (val) {
     this.val = val;
 };
-jsfy.Defered.prototype.toString = function() { return this.val };
+jsfy.Defered.prototype.toString = function () {
+    return this.val
+};
 
 if (typeof module != 'undefined' && module.exports) {
     module.exports = jsfy;
