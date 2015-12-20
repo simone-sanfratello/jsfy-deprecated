@@ -1,3 +1,5 @@
+
+//var jsfy = require('./main');
 var jsfy = require('jsfy');
 
 var _test = {
@@ -38,3 +40,4 @@ var _test = {
 };
 
 console.log(jsfy(_test, 2, '\n'));
+console.log(jsfy(_test, '  ', null, 'data'));

@@ -3,9 +3,9 @@
  * @todo manage circular references 
  * @todo compression
  * @param {*} obj 
- * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tupically use 2, 4 or \t with endline \n
+ * @param {string|number} [spacing] code folding space, can be a string or a number for spaces; tipically use 2, 4 or \t with endline \n
  * @param {string} [endline] end of line string, typically \n or \r\n in windows os
- * @param {string} [name] prepend "var name = "
+ * @param {string} [name] prepend "var name = " and postpend ";"
  * @returns {string}
  * 
  * @example jsfy(theobject); 
@@ -13,7 +13,7 @@
  * @example jsfy(theobject, '\t', '\n');
  * @example jsfy(theobject, null, null, 'data');
  */
-var jsfy = function (obj, spacing, endline, name) {
+var jsfy = function (obj, spacing, endline, name) {    
     if (!endline && endline !== '')
         endline = '';
     
@@ -98,8 +98,9 @@ var jsfy = function (obj, spacing, endline, name) {
             else if (obj === null)
                 _type = 'null';
         }
-        if (!_type && obj === undefined)
-            _type = 'undefined';
+        /// useless
+        //if (!_type && obj === undefined)
+        //  _type = 'undefined';
 
         return __serialize[_type](obj, spacing, deep);
     };
