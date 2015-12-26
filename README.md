@@ -3,6 +3,9 @@
 [![NPM Version](http://img.shields.io/npm/v/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
 [![NPM Downloads](https://img.shields.io/npm/dm/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
 
+[![Code Climate](https://codeclimate.com/github/simone-sanfratello/jsfy/badges/gpa.svg)](https://codeclimate.com/github/simone-sanfratello/jsfy)
+[![Test Coverage](https://codeclimate.com/github/simone-sanfratello/jsfy/badges/coverage.svg)](https://codeclimate.com/github/simone-sanfratello/jsfy/coverage)
+
 [![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MRV4AM2CA9F78 "Donate using Paypal")
 
 Javascript Object full serialization, when JSON.stringify is not enough
