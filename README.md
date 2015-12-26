@@ -25,6 +25,7 @@ Stringify using correct syntax for all js native variable types:
 * NaN
 
 Can use not yet defined vars using "jsfy.Defered" type.
+
 Detect circular reference, if found throw exception.
 
 ## Npm Installation
