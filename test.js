@@ -1,4 +1,4 @@
-
+//var jsfy = require('./main');
 var jsfy = require('jsfy');
 
 var _test = {

@@ -1,6 +1,6 @@
 {
     "name": "jsfy",
-    "version": "1.6.2",
+    "version": "1.6.3",
     "description": "Javascript Object serialization/marshalling",
     "keywords": ["stringify", "jsfy", "json", "serialization", "marshalling"],
     "url": "http://github.com/simone-sanfratello/jsfy",
@@ -14,9 +14,9 @@
         "node": ">= 0.10.x"
     },
     "scripts": {
-        "test": "node test.js"
+        "test": "istanbul cover test.js -x test.js"
     },
     "tonicExampleFilename": "test.js",
-    "files": ["main.js","test.js"],
+    "files": ["main.js", "test.js"],
     "main": "main"
 }
