@@ -50,7 +50,7 @@ var _test = {
   anan: NaN,
   ainfinity: Infinity,
   aclass: {
-    afunction: function () { return 'hi'; },
+    afunction: function () { return 'hi' },
     afloat: 7.8
   },
   aregexp: /(\w)+/,
