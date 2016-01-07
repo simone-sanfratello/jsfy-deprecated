@@ -3,6 +3,7 @@
 [![NPM Version](http://img.shields.io/npm/v/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
 [![NPM Downloads](https://img.shields.io/npm/dm/jsfy.svg?style=flat)](https://www.npmjs.org/package/jsfy)
 
+[![JS Standard Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Code Climate](https://codeclimate.com/github/simone-sanfratello/jsfy/badges/gpa.svg)](https://codeclimate.com/github/simone-sanfratello/jsfy)
 [![Test Coverage](https://codeclimate.com/github/simone-sanfratello/jsfy/badges/coverage.svg)](https://codeclimate.com/github/simone-sanfratello/jsfy/coverage)
 
@@ -35,50 +36,49 @@ Detect circular reference, if found throw exception.
 ## Node.js Example
 
 ```js
-
-var jsfy = require('jsfy');
+var jsfy = require('jsfy')
 
 var _test = {
-    adefered: new jsfy.Defered('my.Custom.ENUM'), // my.Custom.ENUM is not yet defined
-    astring: 'katia',
-    anarray: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
-    aquoting: 'hi "mr ',
-    abool: true,
-    anotherbool: false,
-    anundefined: undefined,
-    anull: null,
-    anan: NaN,
-    ainfinity: Infinity,
-    aclass: {
-        afunction: function() { return 'hi'; },
-        afloat: 7.8
+  adefered: new jsfy.Defered('my.Custom.ENUM'), // my.Custom.ENUM is not yet defined
+  astring: 'katia',
+  anarray: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
+  aquoting: 'hi "mr ',
+  abool: true,
+  anotherbool: false,
+  anundefined: undefined,
+  anull: null,
+  anan: NaN,
+  ainfinity: Infinity,
+  aclass: {
+    afunction: function () { return 'hi'; },
+    afloat: 7.8
+  },
+  aregexp: /(\w)+/,
+  atree: {
+    one: 1,
+    two: 'two',
+    three: {
+      threeone: {
+        1: '3.1'
+      }
     },
-    aregexp: /(\w)+/,
-    atree: {
-        one: 1,
-        two: 'two',
-        three: {
-            threeone: {
-                1: '3.1'
-            }
-        },
-        four: 4.01,
-        five: 5
-    },
-    "1astrangekey": 123,
-    "strange-key_two": 0,
-    normal_key: -1,
-    "awful key ": 'a',
-    "dotted.key.com": 'www',
-    "very\".awsul.key": '123',
-    "why use a string for a key? 'cause I can ...": "?'\""
-};
+    four: 4.01,
+    five: 5
+  },
+  '1astrangekey': 123,
+  'strange-key_two': 0,
+  normal_key: -1,
+  'awful key ': 'a',
+  'dotted.key.com': 'www',
+  'very".awsul.key': '123',
+  "why use a string for a key? 'cause I can ...": '?\'"'
+}
 
-console.log(jsfy(_test, null, null, 'mix'));
+console.log(jsfy(_test, null, null, 'mix'))
 ```
 output
 ```
-> var mix = {adefered:my.custom.ENUM,astring:"katia",anarray:[1,"alice","rico","mimi",2,3,new Date("2015-02-13T04:59:11.698Z")],aquoting:"hi \"mr ",abool:true,anotherbool:false,anundefined:undefined,anull:null,anan:NaN,ainfinity:Infinity,aclass:{afunction:function () { return 'hi'; },afloat:7.8},aregexp:/(\w)+/,atree:{one:1,two:"two",three:{threeone:{1:"3.1"}},four:4.01,five:5},1astrangekey:123,"strange-key_two":0,normal_key:-1,"awful key ":"a","dotted.key.com":"www","very\".awsul.key":"123","why use a string for a key? 'cause I can ...":"?'\""};
+> var mix = {adefered:my.custom.ENUM,astring:"katia",anarray:[1,"alice","rico","mimi",2,3,new Date("2015-02-13T04:59:11.698Z")],aquoting:"hi \"mr ",abool:true,anotherbool:false,anundefined:undefined,anull:null,anan:NaN,ainfinity:Infinity,aclass:{afunction:function () { return 'hi'; },afloat:7.8},aregexp:/(\w)+/,atree:{one:1,two:"two",three:{threeone:{1:"3.1"}},four:4.01,five:5},1astrangekey:123,"strange-key_two":0,normal_key:-1,"awful key ":"a","dotted.key.com":"www","very\".awsul.key":"123","why use a string for a key? 'cause I can ...":"?'\""}
 
 ```
 
@@ -92,33 +92,34 @@ output
 
 <script src="https://rawgit.com/simone-sanfratello/jsfy/master/main.js">
 
-    var _test = {
-        astring: 'katia',
-        anarray: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
-        abool: true,
-        anotherbool: false,
-        anundefined: undefined,
-        anull: null,
-        anan: NaN,
-        aclass: {
-            afunction: function() { return 'hi'; },
-            afloat: 7.8
-        },
-        aregexp: /(\w)+/,
-        atree: {
-            one: 1,
-            two: 'two',
-            three: {
-                threeone: {
-                    1: '3.1'
-                }
-            },
-            four: 4.01,
-            five: 5
-        }
-    };
+var _test = {
+  astring: 'katia',
+  anarray: [1, 'alice', 'rico', 'mimi', 2, 3, new Date()],
+  abool: true,
+  anotherbool: false,
+  anundefined: undefined,
+  anull: null,
+  anan: NaN,
+  aclass: {
+    afunction: function () { return 'hi' },
+    afloat: 7.8
+  },
+  aregexp: /(\w)+/,
+  atree: {
+    one: 1,
+    two: 'two',
+    three: {
+      threeone: {
+        1: '3.1'
+      }
+    },
+    four: 4.01,
+    five: 5
+  }
+}
 
-    console.log(jsfy(_test, 2, '\n'));
+console.log(jsfy(_test, 2, '\n'))
+
 </script>
 ```
 
