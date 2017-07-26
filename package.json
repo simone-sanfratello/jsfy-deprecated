@@ -1,28 +1,22 @@
 {
     "name": "jsfy",
-    "version": "1.6.5",
-    "description": "Javascript Object serialization/marshalling",
+    "version": "1.6.6",
+    "description": "deprecated - use json-stringify-extended",
     "keywords": [
         "stringify",
         "jsfy",
         "json",
-        "serialization",
-        "marshalling"
+        "serialization"
     ],
-    "url": "http://github.com/simone-sanfratello/jsfy",
+    "url": "http://github.com/simone-sanfratello/jsfy-deprecated",
     "author": "Simone Sanfratello <simone.sanfra@gmail.com>",
     "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/simone-sanfratello/jsfy.git"
-    },
     "engines": {
         "node": ">= 0.10.x"
     },
     "scripts": {
         "test": "istanbul cover test.js -x test.js"
     },
-    "tonicExampleFilename": "test.js",
     "files": [
         "main.js",
         "test.js"
